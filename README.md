@@ -2,81 +2,245 @@
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+A modern cryptocurrency dashboard built with Angular 20 and Nx, designed to provide an intuitive interface for cryptocurrency tracking and analysis.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-standalone-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## 🚀 Technologies
 
-## Finish your CI setup
+### 🎨 Frontend
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/0FSJ8GuAje)
+- **Angular 20** - Main framework
+- **TypeScript 5.9** - Programming language
+- **Tailwind CSS 4.1** - Utility-first CSS framework
+- **PostCSS** - CSS processor
 
+### 🚧 Development Tools
 
-## Run tasks
+- **Nx 21.5** - Monorepo and build tools
+- **ESLint** - JavaScript/TypeScript linter
+- **Prettier** - Code formatter
+- **Jest** - Testing framework
+- **Cypress** - End-to-end testing
 
-To run the dev server for your app, use:
+### 🕵️ Code Quality
 
-```sh
-npx nx serve ng-crypto-dashboard
+- **Husky** - Git hooks
+- **lint-staged** - Linting on staged files
+- **Angular ESLint** - Angular-specific rules
+
+### 🏗️ Build & Deploy
+
+- **Angular Build** - Optimized build system
+- **SWC** - Fast TypeScript compiler
+
+## 🛠️ Development Setup
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- Git
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+cd ng-crypto-dashboard
+
+# Install dependencies
+npm install
+
+# Setup git hooks (runs automatically with npm install)
+npm run prepare
 ```
 
-To create a production bundle:
+## 🚀 Development Commands
 
-```sh
-npx nx build ng-crypto-dashboard
+### Development
+
+```bash
+# Start development server
+npm start
+# or
+npx nx serve
+
+# Build for production
+npm run build
+# or
+npx nx build
 ```
 
-To see all available targets to run for a project, run:
+### Testing
 
-```sh
-npx nx show project ng-crypto-dashboard
+```bash
+# Run unit tests
+npm test
+# or
+npx nx test
+
+# Run e2e tests
+npx nx e2e
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### Linting & Formatting
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+# Run ESLint
+npm run lint
+# or
+npx nx lint
 
-## Add new projects
+# Format code
+npm run format
+# or
+npx nx format:write
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/angular:app demo
+# Lint staged files (automatic on commits)
+npx lint-staged
 ```
 
-To generate a new library, use:
+### Other useful commands
 
-```sh
-npx nx g @nx/angular:lib mylib
+```bash
+# Show all available targets
+npx nx show project
+
+# Visualize workspace graph
+npx nx graph
+
+# List installed plugins
+npx nx list
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+## 🔧 Code Quality
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Git Hooks (Husky)
 
+The project is configured with **Husky** to automatically run quality checks before each commit:
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- **Pre-commit**: Automatically runs tests and lint-staged
+- **Lint-staged**: Applies linting and formatting only to staged files
 
-## Install Nx Console
+### Lint-staged
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+Configured to process different file types:
+
+```json
+{
+  "*.{ts,tsx}": ["eslint --fix"],
+  "*.html": ["eslint --fix"],
+  "*.{css,scss}": ["prettier --write"]
+}
+```
+
+### ESLint
+
+- Base configuration in `.eslintrc.base.json`
+- Angular-specific rules
+- Auto-fix enabled for automatic corrections
+
+### Prettier
+
+- Automatic code formatting
+- Consistent configuration across the project
+
+## 📁 Project Generation
+
+### Applications
+
+```bash
+# Generate new Angular application
+npx nx g @nx/angular:app app-name
+
+# Generate application with routing
+npx nx g @nx/angular:app app-name --routing
+```
+
+### Libraries
+
+```bash
+# Generate new library
+npx nx g @nx/angular:lib lib-name
+
+# Generate library with routing
+npx nx g @nx/angular:lib lib-name --routing
+```
+
+### Components and Services
+
+```bash
+# Generate component
+npx nx g @nx/angular:component component-name --project=app-name
+
+# Generate service
+npx nx g @nx/angular:service service-name --project=app-name
+```
+
+### Useful commands
+
+```bash
+# List installed plugins
+npx nx list
+
+# View available generators
+npx nx list @nx/angular
+
+# View workspace graph
+npx nx graph
+```
+
+## 🎯 Next Steps
+
+### Planned Features
+
+- [ ] Integration with cryptocurrency APIs (CoinGecko, CoinMarketCap)
+- [ ] Real-time dashboard with charts
+- [ ] Price alert system
+- [ ] Portfolio tracking
+- [ ] Basic technical analysis
+- [ ] Dark/light mode
+- [ ] Optimized responsive design
+
+### Project Structure
+
+```
+src/
+├── app/                 # Main application
+│   ├── components/      # Reusable components
+│   ├── services/        # Angular services
+│   ├── models/          # Interfaces and types
+│   └── utils/           # Utilities
+├── assets/              # Static resources
+└── styles/              # Global styles
+```
+
+## 🛠️ Recommended Tools
+
+### Nx Console
+
+Editor extension that enhances the development experience:
+
+- Run tasks from the IDE
+- Generate code with graphical interface
+- Improved autocompletion
 
 [Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-## Useful links
+## 📚 Useful Resources
 
-Learn more:
+### Documentation
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-standalone-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- [Angular Documentation](https://angular.io/docs)
+- [Nx Documentation](https://nx.dev)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Community
+
+- [Nx Discord](https://go.nx.dev/community)
+- [Angular Discord](https://discord.gg/angular)
+- [Twitter Nx](https://twitter.com/nxdevtools)
+- [Twitter Angular](https://twitter.com/angular)
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.

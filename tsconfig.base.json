@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": false,
+    "target": "es2022",
+    "module": "preserve",
+    "lib": ["es2020", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@ng-crypto-dashboard/core": ["libs/core/src/index.ts"],
+      "@ng-crypto-dashboard/features/coins/data-access": [
+        "libs/features/coins/data-access/src/index.ts"
+      ],
+      "@ng-crypto-dashboard/features/coins/pages": [
+        "libs/features/coins/pages/src/index.ts"
+      ],
+      "@ng-crypto-dashboard/features/coins/ui": [
+        "libs/features/coins/ui/src/index.ts"
+      ],
+      "@ng-crypto-dashboard/shared-ui": ["libs/shared-ui/src/index.ts"],
+      "@ng-crypto-dashboard/state": ["libs/state/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
