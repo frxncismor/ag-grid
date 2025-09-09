@@ -1,0 +1,1 @@
+export * from './lib/coin-list/coin-list';

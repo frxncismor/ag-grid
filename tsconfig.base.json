@@ -19,7 +19,8 @@
         "libs/features/coins/ui/src/index.ts"
       ],
       "@ng-crypto-dashboard/shared-ui": ["libs/shared-ui/src/index.ts"],
-      "@ng-crypto-dashboard/state": ["libs/state/src/index.ts"]
+      "@ng-crypto-dashboard/state": ["libs/state/src/index.ts"],
+      "@ng-crypto-dashboard/environment": ["src/environments/environment.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
