@@ -2,7 +2,33 @@
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-A modern cryptocurrency dashboard built with Angular 20 and Nx, designed to provide an intuitive interface for cryptocurrency tracking and analysis.
+A modern cryptocurrency dashboard built with Angular 20 and Nx, featuring real-time price updates, automatic data refresh, and an intuitive interface for cryptocurrency tracking and analysis.
+
+## ✨ Features
+
+### 🔄 Real-time Data Updates
+
+- **Automatic refresh** every 30 seconds (configurable)
+- **Manual refresh** button for instant updates
+- **Customizable intervals**: 10s, 30s, 1min, 5min
+- **Auto ON/OFF toggle** to control automatic updates
+- **Last update indicator** showing when data was refreshed
+
+### 📊 Cryptocurrency Data
+
+- **Top 100 cryptocurrencies** by market cap
+- **Real-time prices** in USD
+- **Market capitalization** data
+- **Coin images** and symbols
+- **Responsive data table** with sorting capabilities
+
+### 🎨 Modern UI/UX
+
+- **Dark/Light mode** support
+- **Responsive design** for all devices
+- **Tailwind CSS** styling
+- **Interactive controls** for data management
+- **Clean, professional interface**
 
 ## 🚀 Technologies
 
@@ -12,6 +38,8 @@ A modern cryptocurrency dashboard built with Angular 20 and Nx, designed to prov
 - **TypeScript 5.9** - Programming language
 - **Tailwind CSS 4.1** - Utility-first CSS framework
 - **PostCSS** - CSS processor
+- **RxJS** - Reactive programming for real-time updates
+- **AG-Grid** - Advanced data grid component
 
 ### 🚧 Development Tools
 
@@ -31,6 +59,16 @@ A modern cryptocurrency dashboard built with Angular 20 and Nx, designed to prov
 
 - **Angular Build** - Optimized build system
 - **SWC** - Fast TypeScript compiler
+
+### 🌐 API Integration
+
+- **CoinGecko API** - Free cryptocurrency data provider
+- **No API key required** for basic usage
+- **Real-time price data** with automatic updates
+- **Rate limit friendly** (50 requests/minute)
+- **Endpoints used**:
+  - `/coins/markets` - Top 100 cryptocurrencies by market cap
+  - `/coins/{id}` - Individual coin details
 
 ## 🛠️ Development Setup
 
@@ -53,6 +91,35 @@ npm install
 # Setup git hooks (runs automatically with npm install)
 npm run prepare
 ```
+
+### Quick Start
+
+```bash
+# Start the development server
+npm start
+
+# Open your browser to http://localhost:4200
+# The dashboard will automatically load cryptocurrency data
+```
+
+**No additional configuration required!** The app uses CoinGecko's free API and works out of the box.
+
+## 📱 How to Use
+
+### Dashboard Controls
+
+1. **Automatic Updates**: The dashboard automatically refreshes data every 30 seconds
+2. **Manual Refresh**: Click the "Actualizar" button for instant data updates
+3. **Auto Toggle**: Use the "Auto ON/OFF" button to enable/disable automatic updates
+4. **Interval Selection**: Choose update frequency from the dropdown (10s, 30s, 1min, 5min)
+5. **Last Update**: View when data was last refreshed in the header
+
+### Data Table
+
+- **Sortable Columns**: Click column headers to sort data
+- **Responsive Design**: Table adapts to different screen sizes
+- **Real-time Prices**: Prices update automatically based on your selected interval
+- **Market Data**: View current prices and market capitalization
 
 ## 🚀 Development Commands
 
@@ -189,29 +256,53 @@ npx nx list @nx/angular
 npx nx graph
 ```
 
-## 🎯 Next Steps
+## 🎯 Current Status
 
-### Planned Features
+### ✅ Implemented Features
 
-- [ ] Integration with cryptocurrency APIs (CoinGecko, CoinMarketCap)
-- [ ] Real-time dashboard with charts
-- [ ] Price alert system
-- [ ] Portfolio tracking
-- [ ] Basic technical analysis
-- [ ] Dark/light mode
-- [ ] Optimized responsive design
+- [x] **CoinGecko API Integration** - Real-time cryptocurrency data
+- [x] **Automatic Data Updates** - Configurable refresh intervals
+- [x] **Interactive Dashboard** - Modern UI with controls
+- [x] **Responsive Design** - Works on all devices
+- [x] **Dark/Light Mode** - Theme switching support
+- [x] **Data Table** - Sortable cryptocurrency list
+- [x] **Real-time Indicators** - Last update timestamps
+
+### 🚧 Planned Features
+
+- [ ] **Price Charts** - Historical price visualization
+- [ ] **Price Alerts** - Notification system
+- [ ] **Portfolio Tracking** - Personal crypto portfolio
+- [ ] **Technical Analysis** - Basic chart indicators
+- [ ] **Favorites System** - Bookmark preferred coins
+- [ ] **Export Functionality** - Data export to Excel/CSV
+- [ ] **Advanced Filtering** - Search and filter options
 
 ### Project Structure
 
 ```
-src/
-├── app/                 # Main application
-│   ├── components/      # Reusable components
-│   ├── services/        # Angular services
-│   ├── models/          # Interfaces and types
-│   └── utils/           # Utilities
-├── assets/              # Static resources
-└── styles/              # Global styles
+ng-crypto-dashboard/
+├── libs/
+│   ├── core/                    # Core functionality
+│   │   ├── guards/              # Route guards
+│   │   └── interceptors/        # HTTP interceptors
+│   ├── features/
+│   │   └── coins/               # Cryptocurrency feature
+│   │       ├── data-access/     # Services and data layer
+│   │       ├── pages/           # Page components
+│   │       └── ui/              # UI components
+│   ├── shared-ui/               # Shared UI components
+│   └── state/                   # State management
+├── src/
+│   ├── app/                     # Main application
+│   │   ├── app.config.ts        # App configuration
+│   │   ├── app.routes.ts        # Routing configuration
+│   │   └── app.html             # Main template
+│   ├── environments/            # Environment configs
+│   └── styles.css               # Global styles
+└── docs/                        # Documentation
+    ├── COINGECKO_SETUP.md       # API setup guide
+    └── CORS_SOLUTION.md         # CORS configuration
 ```
 
 ## 🛠️ Recommended Tools
